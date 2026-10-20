@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="संपर्क — संजय ज्वैलरी" data-en="Contact — Sanjay Jewellery">संपर्क — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</h1><p data-hi="हम आपसे बात करना चाहेंगे" data-en="We'd love to hear from you">हम आपसे बात करना चाहेंगे</p></div></div>
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <h3 style="margin-bottom:16px" data-hi="संदेश भेजें" data-en="Send a Message">संदेश भेजें</h3>
+        <form onsubmit="event.preventDefault();showToast(L('संदेश भेज दिया गया!','Message sent!'));this.reset()">
+          <div class="form-row">
+            <div class="form-group"><label data-hi="नाम" data-en="Name">नाम</label><input required></div>
+            <div class="form-group"><label data-hi="ईमेल" data-en="Email">ईमेल</label><input type="email" required></div>
+          </div>
+          <div class="form-group"><label data-hi="फ़ोन" data-en="Phone">फ़ोन</label><input type="tel"></div>
+          <div class="form-group"><label data-hi="संदेश" data-en="Message">संदेश</label><textarea required></textarea></div>
+          <button class="btn btn-gold" type="submit" data-hi="संदेश भेजें" data-en="Send Message">संदेश भेजें</button>
+        </form>
+      </div>
+      <div>
+        <h3 style="margin-bottom:16px" data-hi="हमसे जुड़ें" data-en="Get in Touch">हमसे जुड़ें</h3>
+        <p style="margin-bottom:10px;white-space:nowrap">📞 +91 81151 50061</p>
+        <p style="margin-bottom:10px">✉ hello@sanjayjewellery.in</p>
+        <p style="margin-bottom:10px" data-hi="📍 123 ज्वैलरी लेन, मुंबई, भारत" data-en="📍 123 Jewellery Lane, Mumbai, India">📍 123 ज्वैलरी लेन, मुंबई, भारत</p>
+        <p style="margin-bottom:10px" data-hi="🕐 सोम–शनि: सुबह 10 बजे – शाम 7 बजे" data-en="🕐 Mon–Sat: 10am–7pm">🕐 सोम–शनि: सुबह 10 बजे – शाम 7 बजे</p>
+        <a href="https://wa.me/918115150061" class="btn btn-outline" style="margin-top:14px" data-hi="WhatsApp पर चैट करें" data-en="Chat on WhatsApp">WhatsApp पर चैट करें</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+</body>
+</html>

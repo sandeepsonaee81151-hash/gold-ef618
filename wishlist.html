@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="पसंदीदा — संजय ज्वैलरी" data-en="Wishlist — Sanjay Jewellery">पसंदीदा — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="आपकी पसंदीदा सूची" data-en="Your Wishlist">आपकी पसंदीदा सूची</h1><p data-hi="पसंद आए टुकड़े सेव हैं" data-en="Saved pieces you love">पसंद आए टुकड़े सेव हैं</p></div></div>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-4" id="wishGrid"></div>
+    <div class="empty" id="empty" style="display:none"><h3 data-hi="पसंदीदा सूची खाली है" data-en="No items in wishlist">पसंदीदा सूची खाली है</h3><p><a href="shop.html" class="btn btn-gold" data-hi="कलेक्शन एक्सप्लोर करें" data-en="Explore Collection">कलेक्शन एक्सप्लोर करें</a></p></div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+function renderWish(){
+  const ids=getWish();
+  const items=PRODUCTS.filter(p=>ids.includes(p.id));
+  document.getElementById("wishGrid").innerHTML=items.map(productCard).join("");
+  document.getElementById("empty").style.display=items.length?"none":"block";
+}
+renderWish();
+window.renderWish=renderWish;
+const origApply=window.applyLang;
+window.applyLang=function(){renderWish();if(origApply)origApply();};
+</script>
+</body>
+</html>

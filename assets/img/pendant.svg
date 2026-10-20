@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fffdf9"/><stop offset="55%" stop-color="#f4ebd9"/><stop offset="100%" stop-color="#e8dcc4"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f3dc94"/><stop offset="45%" stop-color="#C9A227"/><stop offset="100%" stop-color="#8f6f16"/>
+  </linearGradient>
+  <radialGradient id="gem" cx="35%" cy="30%">
+    <stop offset="0%" stop-color="#ffffff"/><stop offset="55%" stop-color="#dff0f5"/><stop offset="100%" stop-color="#9fc6d4"/>
+  </radialGradient>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#8a6a12" flood-opacity="0.25"/>
+  </filter>
+</defs>
+<rect width="600" height="600" fill="url(#bg)"/>
+<circle cx="300" cy="290" r="215" fill="#ffffff" opacity="0.45"/>
+<circle cx="300" cy="290" r="215" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+<g filter="url(#soft)">
+   <path d="M180 190 C200 280 250 320 300 320 C350 320 400 280 420 190" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+   <circle cx="300" cy="320" r="30" fill="url(#gold)"/>
+   <path d="M300 350 L352 420 L300 480 L248 420 Z" fill="url(#gem)" stroke="url(#gold)" stroke-width="7"/>
+   <path d="M300 368 L336 420 L300 462 L264 420 Z" fill="#ffffff" opacity="0.5"/>
+ </g>
+<text x="300" y="520" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="30" fill="#5b4a1c" letter-spacing="2">PENDANT</text>
+<text x="300" y="552" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="15" fill="#8a7c5c" letter-spacing="3">GEMSTONE</text>
+</svg>

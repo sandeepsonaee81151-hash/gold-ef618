@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="एडमिन — संजय ज्वैलरी" data-en="Admin — Sanjay Jewellery">एडमिन — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="एडमिन पैनल" data-en="Admin Panel">एडमिन पैनल</h1><p data-hi="प्रोडक्ट मैनेज करें (डेमो)" data-en="Manage products (demo)">प्रोडक्ट मैनेज करें (डेमो)</p></div></div>
+<section class="section">
+  <div class="container">
+    <div class="admin-wrap">
+      <aside class="admin-sidebar">
+        <a class="active" href="#" data-hi="प्रोडक्ट" data-en="Products">प्रोडक्ट</a>
+        <a href="#" data-hi="ऑर्डर" data-en="Orders">ऑर्डर</a>
+        <a href="#" data-hi="ग्राहक" data-en="Customers">ग्राहक</a>
+        <a href="#" data-hi="सेटिंग्स" data-en="Settings">सेटिंग्स</a>
+      </aside>
+      <div>
+        <h3 style="margin-bottom:14px" data-hi="प्रोडक्ट" data-en="Products">प्रोडक्ट</h3>
+        <div id="adminRows"></div>
+        <h3 style="margin:30px 0 14px" data-hi="नया प्रोडक्ट जोड़ें" data-en="Add New Product">नया प्रोडक्ट जोड़ें</h3>
+        <form onsubmit="event.preventDefault();showToast(L('प्रोडक्ट जोड़ा गया (डेमो)','Product added (demo)'));this.reset()">
+          <div class="form-row">
+            <div class="form-group"><label data-hi="नाम" data-en="Name">नाम</label><input required></div>
+            <div class="form-group"><label data-hi="श्रेणी" data-en="Category">श्रेणी</label><select><option data-hi="रिंग्स" data-en="Rings">रिंग्स</option><option data-hi="नेकलेस" data-en="Necklaces">नेकलेस</option><option data-hi="ईयररिंग्स" data-en="Earrings">ईयररिंग्स</option><option data-hi="ब्रेसलेट" data-en="Bracelets">ब्रेसलेट</option><option data-hi="पेंडेंट" data-en="Pendants">पेंडेंट</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-hi="धातु" data-en="Metal">धातु</label><select><option data-hi="सोना" data-en="Gold">सोना</option><option data-hi="चांदी" data-en="Silver">चांदी</option></select></div>
+            <div class="form-group"><label data-hi="शुद्धता" data-en="Purity">शुद्धता</label><input placeholder="18K / 925" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-hi="वज़न" data-en="Weight">वज़न</label><input required></div>
+            <div class="form-group"><label data-hi="कीमत (₹)" data-en="Price (₹)">कीमत (₹)</label><input type="number" required></div>
+          </div>
+          <button class="btn btn-gold" type="submit" data-hi="प्रोडक्ट जोड़ें" data-en="Add Product">प्रोडक्ट जोड़ें</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+document.getElementById("adminRows").innerHTML=`
+<table class="admin-table">
+<thead><tr><th data-hi="आईडी" data-en="ID">आईडी</th><th data-hi="नाम" data-en="Name">नाम</th><th data-hi="श्रेणी" data-en="Category">श्रेणी</th><th data-hi="धातु" data-en="Metal">धातु</th><th data-hi="कीमत" data-en="Price">कीमत</th><th data-hi="स्टॉक" data-en="Stock">स्टॉक</th></tr></thead>
+<tbody>
+${PRODUCTS.map(p=>`<tr><td>${p.id}</td><td>${pname(p)}</td><td>${pcat(p)}</td><td>${pmetal(p)} ${p.purity}</td><td>${formatPrice(p.price)}</td><td data-hi="स्टॉक में" data-en="In Stock">स्टॉक में</td></tr>`).join("")}
+</tbody></table>`;
+function renderAdmin(){
+  document.getElementById("adminRows").innerHTML=`
+<table class="admin-table">
+<thead><tr><th>${L("आईडी","ID")}</th><th>${L("नाम","Name")}</th><th>${L("श्रेणी","Category")}</th><th>${L("धातु","Metal")}</th><th>${L("कीमत","Price")}</th><th>${L("स्टॉक","Stock")}</th></tr></thead>
+<tbody>
+${PRODUCTS.map(p=>`<tr><td>${p.id}</td><td>${pname(p)}</td><td>${pcat(p)}</td><td>${pmetal(p)} ${p.purity}</td><td>${formatPrice(p.price)}</td><td>${L("स्टॉक में","In Stock")}</td></tr>`).join("")}
+</tbody></table>`;
+}
+renderAdmin();
+const origApply=window.applyLang;
+window.applyLang=function(){renderAdmin();if(origApply)origApply();};
+</script>
+</body>
+</html>

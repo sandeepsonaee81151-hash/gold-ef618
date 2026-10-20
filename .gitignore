@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Playwright artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
+
+# Firebase local artifacts
+.firebase/
+firebase-debug.log
+.firebaserc.*
+
+
+# Large media not needed in git
+*.mp3
+*.wav
+
+# OS / editor
+Thumbs.db
+.DS_Store
+Gaon_Ki_Yaadein_Master.mp4

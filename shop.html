@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="शॉप — संजय ज्वैलरी" data-en="Shop — Sanjay Jewellery">शॉप — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="शॉप कलेक्शन" data-en="Shop Collection">शॉप कलेक्शन</h1><p data-hi="हर अवसर के लिए हस्तनिर्मित ज्वैलरी खोजें" data-en="Discover handcrafted jewellery for every occasion">हर अवसर के लिए हस्तनिर्मित ज्वैलरी खोजें</p></div></div>
+<section class="section">
+  <div class="container">
+    <div class="filters">
+      <input type="text" id="search" data-placeholder-hi="ज्वैलरी खोजें..." data-placeholder-en="Search jewellery..." placeholder="ज्वैलरी खोजें...">
+      <select id="catFilter"><option value="All" data-hi="सभी श्रेणियां" data-en="All Categories">सभी श्रेणियां</option></select>
+      <select id="metalFilter"><option value="All" data-hi="सभी धातुएं" data-en="All Metals">सभी धातुएं</option><option data-hi="सोना" data-en="Gold">सोना</option><option data-hi="चांदी" data-en="Silver">चांदी</option></select>
+      <select id="sort">
+        <option value="default" data-hi="क्रम: डिफ़ॉल्ट" data-en="Sort: Default">क्रम: डिफ़ॉल्ट</option>
+        <option value="priceLow" data-hi="कीमत: कम से ज़्यादा" data-en="Price: Low to High">कीमत: कम से ज़्यादा</option>
+        <option value="priceHigh" data-hi="कीमत: ज़्यादा से कम" data-en="Price: High to Low">कीमत: ज़्यादा से कम</option>
+      </select>
+    </div>
+    <div class="grid grid-4" id="grid"></div>
+    <div class="empty" id="empty" style="display:none"><h3 data-hi="कोई प्रोडक्ट नहीं मिला" data-en="No products found">कोई प्रोडक्ट नहीं मिला</h3><p data-hi="अलग फ़िल्टर आज़माएं" data-en="Try different filters">अलग फ़िल्टर आज़माएं</p></div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+const catSel=document.getElementById("catFilter");
+function fillCats(){
+  catSel.innerHTML="";
+  const all=document.createElement("option");all.value=LANG==="hi"?"सभी":"All";all.textContent=L("सभी श्रेणियां","All Categories");catSel.appendChild(all);
+  CATEGORIES().forEach(c=>{if(c!==(LANG==="hi"?"सभी":"All")){const o=document.createElement("option");o.value=c;o.textContent=c;catSel.appendChild(o)}});
+  const metalSel=document.getElementById("metalFilter");
+  metalSel.innerHTML="";
+  const allMetal=document.createElement("option");allMetal.value=LANG==="hi"?"सभी":"All";allMetal.textContent=L("सभी धातुएं","All Metals");metalSel.appendChild(allMetal);
+  (LANG==="hi"?["सोना","चांदी"]:["Gold","Silver"]).forEach(m=>{const o=document.createElement("option");o.value=m;o.textContent=m;metalSel.appendChild(o)});
+}
+fillCats();
+const params=new URLSearchParams(location.search);
+let currentCat=params.get("cat")|| (LANG==="hi"?"सभी":"All");
+catSel.value=currentCat;
+function render(){
+  let list=[...PRODUCTS];
+  const q=document.getElementById("search").value.toLowerCase();
+  const cat=catSel.value,metal=document.getElementById("metalFilter").value,sort=document.getElementById("sort").value;
+  const allCat=LANG==="hi"?"सभी":"All";const allMetal=LANG==="hi"?"सभी":"All";
+  if(q)list=list.filter(p=>pname(p).toLowerCase().includes(q)||pcat(p).toLowerCase().includes(q));
+  if(cat!==allCat)list=list.filter(p=>pcat(p)===cat);
+  if(metal!==allMetal)list=list.filter(p=>pmetal(p)===metal);
+  if(sort==="priceLow")list.sort((a,b)=>a.price-b.price);
+  if(sort==="priceHigh")list.sort((a,b)=>b.price-a.price);
+  document.getElementById("grid").innerHTML=list.map(productCard).join("");
+  document.getElementById("empty").style.display=list.length?"none":"block";
+}
+["search","catFilter","metalFilter","sort"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+// update placeholders on lang change
+const _render=render;
+window.render=render;
+render();
+// search placeholder
+function updPlaceholders(){const s=document.getElementById("search");if(s){s.placeholder=LANG==="hi"?"ज्वैलरी खोजें...":"Search jewellery..."}}
+updPlaceholders();
+const origApply=window.applyLang;
+window.applyLang=function(){fillCats();updPlaceholders();render();if(origApply)origApply();};
+</script>
+</body>
+</html>

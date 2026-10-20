@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" width="480" height="600">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fffdf9"/><stop offset="55%" stop-color="#f4ebd9"/><stop offset="100%" stop-color="#e8dcc4"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f3dc94"/><stop offset="45%" stop-color="#C9A227"/><stop offset="100%" stop-color="#8f6f16"/>
+  </linearGradient>
+  <radialGradient id="gem" cx="35%" cy="30%">
+    <stop offset="0%" stop-color="#ffffff"/><stop offset="55%" stop-color="#dff0f5"/><stop offset="100%" stop-color="#9fc6d4"/>
+  </radialGradient>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#8a6a12" flood-opacity="0.28"/>
+  </filter>
+</defs>
+<rect width="480" height="600" fill="url(#bg)"/>
+<circle cx="240" cy="270" r="175" fill="#ffffff" opacity="0.5"/>
+<circle cx="240" cy="270" r="175" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.55"/>
+<g filter="url(#soft)">
+  <circle cx="240" cy="285" r="98" fill="none" stroke="url(#gold)" stroke-width="18"/>
+  <path d="M240 135 L300 203 L240 258 L180 203 Z" fill="url(#gem)" stroke="url(#gold)" stroke-width="7"/>
+  <path d="M240 152 L284 203 L240 239 L196 203 Z" fill="#ffffff" opacity="0.55"/>
+  <circle cx="152" cy="315" r="21" fill="url(#gold)" opacity="0.9"/>
+  <circle cx="328" cy="315" r="21" fill="url(#gold)" opacity="0.9"/>
+  <path d="M240 398 L263 421 L240 444 L217 421 Z" fill="url(#gem)" stroke="url(#gold)" stroke-width="4"/>
+</g>
+<text x="240" y="520" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="27" fill="#5b4a1c" letter-spacing="2">SANJAY JEWELLERY</text>
+<text x="240" y="550" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="14" fill="#8a7c5c" letter-spacing="3">BIS HALLMARKED</text>
+</svg>

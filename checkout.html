@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="चेकआउट — संजय ज्वैलरी" data-en="Checkout — Sanjay Jewellery">चेकआउट — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="चेकआउट" data-en="Checkout">चेकआउट</h1><p data-hi="अपना ऑर्डर पूरा करें" data-en="Complete your order">अपना ऑर्डर पूरा करें</p></div></div>
+<section class="section">
+  <div class="container">
+    <div class="checkout-grid">
+      <div>
+        <h3 style="margin-bottom:16px" data-hi="शिपिंग विवरण" data-en="Shipping Details">शिपिंग विवरण</h3>
+        <form onsubmit="placeOrder(event)">
+          <div class="form-row">
+            <div class="form-group"><label data-hi="पहला नाम" data-en="First Name">पहला नाम</label><input required></div>
+            <div class="form-group"><label data-hi="अंतिम नाम" data-en="Last Name">अंतिम नाम</label><input required></div>
+          </div>
+          <div class="form-group"><label data-hi="ईमेल" data-en="Email">ईमेल</label><input type="email" required></div>
+          <div class="form-group"><label data-hi="फ़ोन" data-en="Phone">फ़ोन</label><input type="tel" required></div>
+          <div class="form-group"><label data-hi="पता" data-en="Address">पता</label><textarea required></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label data-hi="शहर" data-en="City">शहर</label><input required></div>
+            <div class="form-group"><label data-hi="पिन कोड" data-en="PIN Code">पिन कोड</label><input required></div>
+          </div>
+          <div class="form-group"><label data-hi="राज्य" data-en="State">राज्य</label><input required></div>
+          <h3 style="margin:20px 0 16px" data-hi="भुगतान विधि" data-en="Payment Method">भुगतान विधि</h3>
+          <div class="form-group">
+            <label><input type="radio" name="pay" checked> <span data-hi="UPI / Razorpay" data-en="UPI / Razorpay">UPI / Razorpay</span></label><br>
+            <label><input type="radio" name="pay"> <span data-hi="क्रेडिट / डेबिट कार्ड" data-en="Credit / Debit Card">क्रेडिट / डेबिट कार्ड</span></label><br>
+            <label><input type="radio" name="pay"> <span data-hi="कैश ऑन डिलीवरी" data-en="Cash on Delivery">कैश ऑन डिलीवरी</span></label>
+          </div>
+          <button class="btn btn-gold" type="submit" style="width:100%;margin-top:10px" data-hi="ऑर्डर दें" data-en="Place Order">ऑर्डर दें</button>
+        </form>
+      </div>
+      <div>
+        <div class="cart-summary">
+          <h3 data-hi="ऑर्डर सारांश" data-en="Order Summary">ऑर्डर सारांश</h3>
+          <div id="items"></div>
+          <div class="row" style="margin-top:10px"><span data-hi="सबटोटल" data-en="Subtotal">सबटोटल</span><span id="sub"></span></div>
+          <div class="row"><span data-hi="शिपिंग" data-en="Shipping">शिपिंग</span><span id="ship"></span></div>
+          <div class="row total"><span data-hi="कुल" data-en="Total">कुल</span><span id="tot"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+function placeOrder(e){e.preventDefault();
+  const c=getCart();
+  const order={id:Date.now(),date:new Date().toLocaleString(),items:c.map(x=>({id:x.id,qty:x.qty})),total:cartTotal()+(cartTotal()>=25000?0:500),status:L("प्रोसेसिंग","Processing")};
+  const orders=JSON.parse(localStorage.getItem("jk_orders")||"[]");orders.unshift(order);localStorage.setItem("jk_orders",JSON.stringify(orders));
+  localStorage.removeItem("jk_cart");updateCartBadge();
+  alert(L("ऑर्डर सफलतापूर्वक दिया गया! 🎉\nसंजय ज्वैलरी से खरीदारी के लिए धन्यवाद।","Order placed successfully! 🎉\nThank you for shopping with Sanjay Jewellery."));
+  location.href="orders.html"}
+const c=getCart();
+document.getElementById("items").innerHTML=c.map(x=>{const p=getProduct(x.id);return `<div class="row"><span>${pname(p)} ×${x.qty}</span><span>${formatPrice(p.price*x.qty)}</span></div>`}).join("");
+const sub=cartTotal();const ship=sub>=25000||!c.length?0:500;
+document.getElementById("sub").textContent=formatPrice(sub);
+document.getElementById("ship").textContent=ship===0?L("मुफ़्त","Free"):formatPrice(ship);
+document.getElementById("tot").textContent=formatPrice(sub+ship);
+const origApply=window.applyLang;
+window.applyLang=function(){if(origApply)origApply();};
+</script>
+</body>
+</html>
