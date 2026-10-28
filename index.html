@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanjay Jewellery - शानदार सोना, हीरा और चांदी के आभूषण। 25+ साल का अनुभव, BIS हॉलमार्ट प्रमाणित उत्पाद, उचित दाम और भरोसेमंद सेवा।">
+    <meta name="keywords" content="Sanjay Jewellery, gold jewellery, diamond jewellery, silver jewellery, bridal jewellery, BIS hallmark, LGC certified diamonds, jewellery shop India">
+    <meta name="author" content="Sanjay Jewellery">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sanjay123-5b4c8.web.app/">
+    <meta property="og:title" content="Sanjay Jewellery | शानदार आभूषण, प्रामाणिक दाम">
+    <meta property="og:description" content="सोना, हीरा और चांदी के आभूषण। BIS हॉलमार्ट प्रमाणित, उचित दाम, 25+ वर्षों का अनुभव।">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanjay123-5b4c8.web.app/">
+    <meta property="og:image" content="https://sanjay123-5b4c8.web.app/assets/hero-necklace.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sanjay Jewellery | शानदार आभूषण, प्रामाणिक दाम">
+    <meta name="twitter:description" content="सोना, हीरा और चांदी के आभूषण। BIS हॉलमार्ट प्रमाणित, उचित दाम।">
+    <meta name="twitter:image" content="https://sanjay123-5b4c8.web.app/assets/hero-necklace.jpg">
+    <title>Sanjay Jewellery | शानदार आभूषण, प्रामाणिक दाम</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Shared SVG gradient definitions (used by jewellery icons) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f7e07a"/>
+                <stop offset="0.5" stop-color="#d4af37"/>
+                <stop offset="1" stop-color="#a9821a"/>
+            </linearGradient>
+            <linearGradient id="diamondGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="0.5" stop-color="#cfe9ff"/>
+                <stop offset="1" stop-color="#7fb4e6"/>
+            </linearGradient>
+            <linearGradient id="silverGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="0.5" stop-color="#dfe6ee"/>
+                <stop offset="1" stop-color="#9aa7b5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Always-visible contact numbers -->
+    <div class="contact-strip" aria-label="हमसे संपर्क करें">
+        <div class="contact-marquee">
+            <span><a href="tel:+918115150061">☎ +91 81151 50061</a><span aria-hidden="true"> • </span><a href="tel:+917359115797">☎ +91 73591 15797</a><span aria-hidden="true"> • WhatsApp पर संपर्क करें</span></span>
+            <span aria-hidden="true">&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;</span>
+            <span><a href="tel:+918115150061">☎ +91 81151 50061</a><span aria-hidden="true"> • </span><a href="tel:+917359115797">☎ +91 73591 15797</a><span aria-hidden="true"> • WhatsApp पर संपर्क करें</span></span>
+            <span aria-hidden="true">&nbsp;&nbsp;&nbsp; ✦ &nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="logo" href="#home" aria-label="Sanjay Jewellery home">
+            <span class="logo-icon" aria-hidden="true">💎</span>
+            <span class="logo-text">Sanjay Jewellery</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">होम</a></li>
+            <li><a href="#about">हमारे बारे में</a></li>
+            <li><a href="#collections">कलेक्शन</a></li>
+            <li><a href="#services">सेवाएं</a></li>
+            <li><a href="#gallery">गैलरी</a></li>
+            <li><a href="#contact">संपर्क करें</a></li>
+        </ul>
+        <button class="account-nav" id="loginIcon" type="button" aria-label="ग्राहक लॉगिन" title="ग्राहक लॉगिन">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M4.5 20c.6-3.5 3.4-5.5 7.5-5.5s6.9 2 7.5 5.5"></path></svg>
+        </button>
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="भाषा बदलें" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>
+            <span id="languageLabel">हिंदी / EN</span>
+        </button>
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="संगीत चालू करें" aria-pressed="false" title="संगीत चालू करें">
+            <i class="fas fa-music" aria-hidden="true"></i>
+            <span id="musicLabel">Music</span>
+        </button>
+        <a class="whatsapp-nav" href="https://wa.me/918115150061" target="_blank" rel="noopener" aria-label="WhatsApp पर संदेश भेजें">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">शानदार</span>
+                <span class="title-line gold">आभूषण</span>
+            </h1>
+            <p class="hero-subtitle">परिवार की परंपरा, आपकी भरोसेमंद पहचान</p>
+            <p class="hero-desc">सोने की शुद्धता, हीरों की चमक और हर खास मौके की खूबसूरत ज्वेलरी — यह सब एक ही जगह मिलता है।</p>
+            <div class="live-rates-bar hero-live-rates" aria-label="आज के लाइव सोना और चांदी के भाव">
+                <div class="live-rates-heading"><span class="live-dot"></span> आज का लाइव भाव</div>
+                <div class="live-rate-item"><span>सोना 24K</span><strong id="goldLiveRate">भाव लोड हो रहा है…</strong><small>प्रति ग्राम</small></div>
+                <div class="live-rate-item"><span>चांदी 999</span><strong id="silverLiveRate">भाव लोड हो रहा है…</strong><small>प्रति ग्राम</small></div>
+                <div class="live-rates-updated" id="ratesUpdated">लाइव market rate</div>
+            </div>
+            <p class="live-rate-note hero-rate-note">लाइव spot भाव का INR रूपांतरण; GST और बनवाई शुल्क अलग हो सकते हैं।</p>
+            <div class="hero-buttons">
+                <a href="#collections" class="btn btn-gold">कलेक्शन देखें</a>
+                <a href="#contact" class="btn btn-outline">संपर्क करें</a>
+            </div>
+            <div class="hero-phones" aria-label="संपर्क नंबर">
+                <a href="tel:+918115150061">☎ +91 81151 50061</a>
+                <a href="tel:+917359115797">☎ +91 73591 15797</a>
+            </div>
+        </div>
+        <div class="hero-image" aria-label="ज्वैलरी फोटो">
+            <figure class="hero-photo hero-model">
+                <img src="assets/indian-bride-hero.jpg" alt="पारंपरिक भारतीय bridal पोशाक और necklace पहनी महिला" fetchpriority="high">
+            </figure>
+            <figure class="hero-photo hero-jewel">
+                <img src="assets/hero-necklace.jpg" alt="सोने की चेन और आकर्षक पेंडेंट">
+            </figure>
+            <span class="hero-image-label">हर पल के लिए खास चमक</span>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">वर्षों का अनुभव</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">खुश ग्राहक</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">डिज़ाइन कलेक्शन</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">BIS</div>
+            <div class="stat-label">हॉलमार्ट प्रमाणित</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>हमारे बारे में</h2>
+            <p>हर खास मौके के लिए खूबसूरत आभूषण और भरोसेमंद सेवा</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>हमारी कहानी</h3>
+                <p>आभूषण सिर्फ़ सजने-सँवरने की चीज़ नहीं, बल्कि हमारी यादों और खास पलों का हिस्सा होते हैं। Sanjay Jewellery में हमारा उद्देश्य है कि आपको सोने, हीरे और अन्य आभूषणों के सुंदर डिज़ाइन एक ही जगह मिलें।</p>
+                <p>शादी, त्योहार या रोज़मर्रा के लिए खरीदारी करते समय आपको धातु, शुद्धता, वजन और कीमत की जानकारी साफ़-साफ़ मिलनी चाहिए। हम आपकी पसंद और बजट समझकर सही विकल्प चुनने में मदद करते हैं—ताकि आप पूरे भरोसे के साथ अपना आभूषण चुन सकें।</p>
+                <ul class="about-features">
+                    <li><i class="fas fa-check-circle"></i> शुद्धता और वजन की स्पष्ट जानकारी</li>
+                    <li><i class="fas fa-check-circle"></i> हर अवसर के लिए सुंदर डिज़ाइन</li>
+                    <li><i class="fas fa-check-circle"></i> कीमत और बजट में पारदर्शिता</li>
+                    <li><i class="fas fa-check-circle"></i> पसंद के अनुसार चुनने में सहायता</li>
+                </ul>
+            </div>
+            <div class="about-highlight">
+                <div class="highlight-card">
+                    <i class="fas fa-gem"></i>
+                    <h4>कीमत में पारदर्शिता</h4>
+                    <p>आभूषण का वजन, शुद्धता और कीमत समझकर चुनें—हम खरीद से पहले ज़रूरी जानकारी स्पष्ट बताते हैं।</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h4>खरीद के बाद भी साथ</h4>
+                    <p>आभूषण की देखभाल और सही उपयोग के लिए हमारी टीम से सलाह लें।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="collections">
+        <div class="section-header">
+            <h2>हमारे कलेक्शन</h2>
+            <p>हर अवसर के लिए एक खास आभूषण — किसी भी आभूषण के पास <strong>Live Preview</strong> दबाएं</p>
+            <p class="section-note"><i class="fas fa-info-circle"></i> नीचे दिखाई गईं तस्वीरें केवल representative/stock images हैं। वास्तविक डिज़ाइन, वजन और कीमत के लिए कृपया संपर्क करें।</p>
+        </div>
+        <div class="collection-tabs">
+            <button class="tab-btn active" data-filter="all">सभी</button>
+            <button class="tab-btn" data-filter="gold">सोना</button>
+            <button class="tab-btn" data-filter="diamond">हीरा</button>
+            <button class="tab-btn" data-filter="silver">चांदी</button>
+            <button class="tab-btn" data-filter="bridal">ब्राइडल</button>
+        </div>
+        <div class="collection-grid">
+            <div class="collection-card" data-category="gold">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Traditional_Indian_Elegance.jpg" alt="सोने की चूड़ियां और कंगन का प्रतिनिधि चित्र" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>सोने की कंगन</h3>
+                    <p class="card-desc">18K गोल्ड ब्रेसलेट और कंगन</p>
+                    <p class="card-price">₹25,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="bangles" data-image="https://upload.wikimedia.org/wikipedia/commons/b/b9/Traditional_Indian_Elegance.jpg" data-title="सोने की कंगन" data-desc="18K गोल्ड ब्रेसलेट और कंगन — हल्का, टिकाऊ और रोज़ पहनने योग्य।" data-price="₹25,000 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Traditional_Indian_Elegance.jpg" target="_blank" rel="noopener">Megala Shankar / Wikimedia Commons (CC BY-SA 4.0)</a></small>
+                </div>
+            </div>
+            <div class="collection-card" data-category="gold">
+                <div class="card-image">
+                    <img src="assets/hero-necklace.jpg" alt="सोने की चेन और खूबसूरत पेंडेंट" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>सोने की माला</h3>
+                    <p class="card-desc">22K सोने की डिज़ाइन माला</p>
+                    <p class="card-price">₹1,50,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="necklace" data-image="assets/hero-necklace.jpg" data-title="सोने की माला" data-desc="22K सोने की हाथ से बनी माला — शादी और त्योहारों के लिए बेहतरीन।" data-price="₹1,50,000 से शुरू">Live Preview</button>
+                </div>
+            </div>
+            <div class="collection-card" data-category="diamond">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/12060-from_Estate_Diamond_Jewelry.jpg" alt="हीरे की अंगूठी का प्रतिनिधि चित्र" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>हीरे की अंगूठी</h3>
+                    <p class="card-desc">LGC प्रमाणित हीरे की अंगूठी</p>
+                    <p class="card-price">₹15,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="ring" data-image="https://upload.wikimedia.org/wikipedia/commons/1/1e/12060-from_Estate_Diamond_Jewelry.jpg" data-title="हीरे की अंगूठी" data-desc="LGC प्रमाणित हीरा — साइज़ और डिज़ाइन आपकी पसंद के अनुसार।" data-price="₹15,000 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:12060-from_Estate_Diamond_Jewelry.jpg" target="_blank" rel="noopener">Roberta889 / Wikimedia Commons (CC BY 4.0)</a></small>
+                </div>
+            </div>
+            <div class="collection-card" data-category="diamond">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Gold_Jhumka%2C_dogra_culture%2C_Jammu.jpg" alt="सोने की झुमकी का प्रतिनिधि चित्र" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>हीरे की झुमकी</h3>
+                    <p class="card-desc">डिज़ाइनर डायमंड झुमकी</p>
+                    <p class="card-price">₹50,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="jhumka" data-image="https://upload.wikimedia.org/wikipedia/commons/9/9d/Gold_Jhumka%2C_dogra_culture%2C_Jammu.jpg" data-title="हीरे की झुमकी" data-desc="डिज़ाइनर झुमकी में चमकीले हीरे — हर नज़र खींचे।" data-price="₹50,000 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Gold_Jhumka,_dogra_culture,_Jammu.jpg" target="_blank" rel="noopener">SpeakingArch / Wikimedia Commons (CC BY-SA 4.0)</a></small>
+                </div>
+            </div>
+            <div class="collection-card" data-category="silver">
+                <div class="card-image">
+                    <img src="assets/silver-watch-cc-by.jpg" alt="असली सिल्वर और स्टील पट्टे वाली एनालॉग कलाई घड़ी" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>चांदी की कलाई घड़ी</h3>
+                    <p class="card-desc">मेटल ब्रेसलेट और सिल्वर डायल वाली क्लासिक एनालॉग घड़ी</p>
+                    <p class="card-price">₹3,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="watch" data-image="assets/silver-watch-cc-by.jpg" data-title="चांदी की कलाई घड़ी" data-desc="मेटल ब्रेसलेट और सिल्वर डायल वाली क्लासिक एनालॉग घड़ी।" data-price="₹3,000 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Certina_Caimano_Bicolor.jpg" target="_blank" rel="noopener">Mattes / Wikimedia Commons (CC BY 2.0)</a></small>
+                </div>
+            </div>
+            <div class="collection-card" data-category="silver">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Silver_crown_stud_earrings_and_strawberries_by_ASQ.jpg" alt="चांदी के ईयररिंग्स का प्रतिनिधि चित्र" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>चांदी के कान के बाल</h3>
+                    <p class="card-desc">एंटीक सिल्वर ईयररिंग</p>
+                    <p class="card-price">₹2,500 से शुरू</p>
+                    <button class="btn-preview" data-icon="earring" data-image="https://upload.wikimedia.org/wikipedia/commons/d/dd/Silver_crown_stud_earrings_and_strawberries_by_ASQ.jpg" data-title="चांदी के कान के बाल" data-desc="एंटीक फिनिश वाले चांदी के ईयररिंग — रोज़ के लिए आरामदायक।" data-price="₹2,500 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Silver_crown_stud_earrings_and_strawberries_by_ASQ.jpg" target="_blank" rel="noopener">W.carter / Wikimedia Commons (CC BY 4.0)</a></small>
+                </div>
+            </div>
+            <div class="collection-card" data-category="bridal">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Bridal_gold_jewellery_in_Bangladeshi_wedding.jpg" alt="ब्राइडल गोल्ड ज्वैलरी सेट का प्रतिनिधि चित्र" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>ब्राइडल सेट</h3>
+                    <p class="card-desc">पूरा ब्राइडल ज्वैलरी सेट</p>
+                    <p class="card-price">₹2,00,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="bridal" data-image="https://upload.wikimedia.org/wikipedia/commons/2/2b/Bridal_gold_jewellery_in_Bangladeshi_wedding.jpg" data-title="ब्राइडल सेट" data-desc="नई दुल्हन के लिए पूरा सेट — माला, कंगन, झुमकी और नोसरिंग सहित।" data-price="₹2,00,000 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Bridal_gold_jewellery_in_Bangladeshi_wedding.jpg" target="_blank" rel="noopener">Syed Sajidul Islam / Wikimedia Commons (CC BY-SA 4.0)</a></small>
+                </div>
+            </div>
+            <div class="collection-card" data-category="bridal">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Maang_Tikka.jpg" alt="मांग टीका सेट का प्रतिनिधि चित्र" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <h3>तिक्का सेट</h3>
+                    <p class="card-desc">ब्राइडल माथे की टीका सेट</p>
+                    <p class="card-price">₹1,00,000 से शुरू</p>
+                    <button class="btn-preview" data-icon="tikka" data-image="https://upload.wikimedia.org/wikipedia/commons/4/49/Maang_Tikka.jpg" data-title="तिक्का सेट" data-desc="माथे की टीका सेट — ब्राइडल और रोज़ पहनने दोनों के लिए।" data-price="₹1,00,000 से शुरू">Live Preview</button>
+                    <small class="photo-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Maang_Tikka.jpg" target="_blank" rel="noopener">Nandhini Subramaniyan / Wikimedia Commons (CC BY 4.0)</a></small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2>हमारी सेवाएं</h2>
+            <p>खरीद से पहले जानकारी लें; उपलब्धता और शर्तें हर उत्पाद पर निर्भर हो सकती हैं।</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                    <h3>उत्पाद की जानकारी</h3>
+                    <p>शुद्धता, वजन, बनवाई शुल्क और प्रमाणपत्र की उपलब्धता हर उत्पाद में अलग हो सकती है—खरीद से पहले विवरण पूछें।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                    <h3>एक्सचेंज की शर्तें</h3>
+                    <p>पुराने आभूषण का विनिमय उपलब्ध है या नहीं, उसका मूल्यांकन और लागू कटौती—इनकी जानकारी पहले लें।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-pencil-ruler"></i>
+                </div>
+                    <h3>डिज़ाइन पर सलाह</h3>
+                    <p>उपलब्ध डिज़ाइन और नाप के विकल्प देखें। विशेष ऑर्डर की कीमत और समय डिज़ाइन के अनुसार तय होगा।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                    <h3>डिलीवरी की जानकारी</h3>
+                    <p>डिलीवरी आपके PIN code और उत्पाद की उपलब्धता पर निर्भर है। शुल्क और अनुमानित समय ऑर्डर से पहले पूछें।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="section-header">
+            <h2>गैलरी</h2>
+            <p>हमारी कुछ खास बनावटें — क्लिक करके Live Preview देखें</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-icon="necklace" data-image="assets/hero-necklace.jpg" data-title="सोने का हार" data-desc="पेंडेंट वाला खूबसूरत सोने का हार।" data-price="₹1,20,000 से शुरू">
+                <img src="assets/hero-necklace.jpg" alt="सोने की चेन और पेंडेंट का असली फोटो" loading="lazy">
+                <div class="gallery-overlay"><h4>सोना हार</h4></div>
+            </div>
+            <div class="gallery-item" data-icon="ring" data-image="https://upload.wikimedia.org/wikipedia/commons/1/1e/12060-from_Estate_Diamond_Jewelry.jpg" data-title="डायमंड रिंग" data-desc="LGC प्रमाणित डायमंड रिंग।" data-price="₹15,000 से शुरू">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/12060-from_Estate_Diamond_Jewelry.jpg" alt="डायमंड रिंग का प्रतिनिधि चित्र" loading="lazy">
+                <div class="gallery-overlay"><h4>डायमंड रिंग</h4></div>
+            </div>
+            <div class="gallery-item" data-icon="bangles" data-image="https://upload.wikimedia.org/wikipedia/commons/b/b9/Traditional_Indian_Elegance.jpg" data-title="सोने की चूड़ियां" data-desc="पारंपरिक डिज़ाइन की सोने की चूड़ियां।" data-price="₹25,000 से शुरू">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Traditional_Indian_Elegance.jpg" alt="सोने की चूड़ियों का प्रतिनिधि चित्र" loading="lazy">
+                <div class="gallery-overlay"><h4>सोने की चूड़ियां</h4></div>
+            </div>
+            <div class="gallery-item" data-icon="jhumka" data-image="https://upload.wikimedia.org/wikipedia/commons/9/9d/Gold_Jhumka%2C_dogra_culture%2C_Jammu.jpg" data-title="हीरे की झुमकी" data-desc="डिज़ाइनर झुमकी में हीरे।" data-price="₹50,000 से शुरू">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Gold_Jhumka%2C_dogra_culture%2C_Jammu.jpg" alt="सोने की झुमकी का प्रतिनिधि चित्र" loading="lazy">
+                <div class="gallery-overlay"><h4>हीरे की झुमकी</h4></div>
+            </div>
+            <div class="gallery-item" data-icon="bridal" data-image="https://upload.wikimedia.org/wikipedia/commons/2/2b/Bridal_gold_jewellery_in_Bangladeshi_wedding.jpg" data-title="ब्राइडल सेट" data-desc="पूरा ब्राइडल ज्वैलरी सेट।" data-price="₹2,00,000 से शुरू">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Bridal_gold_jewellery_in_Bangladeshi_wedding.jpg" alt="ब्राइडल सेट का प्रतिनिधि चित्र" loading="lazy">
+                <div class="gallery-overlay"><h4>ब्राइडल सेट</h4></div>
+            </div>
+            <div class="gallery-item" data-icon="tikka" data-image="https://upload.wikimedia.org/wikipedia/commons/4/49/Maang_Tikka.jpg" data-title="टीका सेट" data-desc="माथे की टीका सेट।" data-price="₹1,00,000 से शुरू">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Maang_Tikka.jpg" alt="मांग टीका सेट का प्रतिनिधि चित्र" loading="lazy">
+                <div class="gallery-overlay"><h4>टीका सेट</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>ग्राहकों की राय</h2>
+            <p>आप सब की पसंद हमारी पहचान</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <p>शादी के लिए सोना हार खरीदा, दाम बिल्कुल उचित था। हॉलमार्ट भी लगा हुआ मिला। सबने तारीफ की!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👩</div>
+                    <div>
+                        <h4>प्रिया शर्मा</h4>
+                        <span>दिल्ली</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <p>हीरे की अंगूठी ली, LGC प्रमाणपत्र के साथ। महंगा लेकिन भरोसा है। हर महीने माता को नया आभूषण लाता हूं।</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👨</div>
+                    <div>
+                        <h4>राहुल गुप्ता</h4>
+                        <span>लखनऊ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote">"</div>
+                <p>पुराना सोना बदला और नया डिज़ाइन बनवाया। दुकानदार भैया ने सब समझाया। सेवा बहुत अच्छी है।</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👵</div>
+                    <div>
+                        <h4>सीता देवी</h4>
+                        <span>पटना</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>संपर्क करें</h2>
+            <p>आपकी सेवा में हम हमेशा तैयार हैं</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>पता</h4>
+                        <p>संजय ज्वैलर्स, गोपीगंज, ज्ञानपुर रोड, सोनखरी</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>फोन</h4>
+                        <p><a href="tel:+918115150061">+91 81151 50061</a><br><a href="tel:+917359115797">+91 73591 15797</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>ईमेल</h4>
+                        <p><a href="mailto:sandeepsonaee81151@gmail.com">sandeepsonaee81151@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>समय</h4>
+                        <p>सोमवार से शनिवार: सुबह 10:00 — शाम 7:00</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/918115150061" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>संदेश भेजें</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">आपका नाम</label>
+                        <input type="text" id="name" placeholder="नाम लिखें" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">फोन नंबर</label>
+                        <input type="tel" id="phone" placeholder="फोन नंबर" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ईमेल</label>
+                        <input type="email" id="email" placeholder="ईमेल पता" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">संदेश</label>
+                        <textarea id="message" rows="4" placeholder="आपका संदेश यहां लिखें..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-submit">संदेश भेजें</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon">💎</span>
+                <span>Sanjay Jewellery</span>
+            </div>
+            <p>&copy; 2026 Sanjay Jewellery. सर्वाधिकार सुरक्षित।</p>
+            <p>प्रामाणिक ज्वैलरी • उचित दाम • सच्चा भरोसा</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span aria-hidden="true">•</span>
+                <a href="admin.html">Admin</a>
+            </div>
+            <p class="music-credit">Background music: Indian Folk Classical Flute Music by <a href="https://commons.wikimedia.org/wiki/File:Indian_Folk_Classical_Flute_Music_(1).wav" target="_blank" rel="noopener">MayankSingh33 / Wikimedia Commons (CC BY-SA 4.0)</a></p>
+        </div>
+    </footer>
+
+    <!-- Live Preview Modal -->
+    <div class="preview-modal" id="previewModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-details">
+                <h3 id="modalTitle">आभूषण</h3>
+                <p id="modalDesc"></p>
+                <p class="modal-price" id="modalPrice"></p>
+                <ul class="modal-features">
+                    <li><i class="fas fa-check-circle"></i> BIS हॉलमार्ट प्रमाणित</li>
+                    <li><i class="fas fa-check-circle"></i> LGC प्रमाणित हीरे</li>
+                    <li><i class="fas fa-check-circle"></i> फ्री क्लीनिंग सुविधा</li>
+                    <li><i class="fas fa-check-circle"></i> सुरक्षित होम डिलीवरी</li>
+                </ul>
+                <a class="btn btn-gold" id="modalWhats" target="_blank" rel="noopener">WhatsApp पर पूछें</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="modal-backdrop login-backdrop"></div>
+        <div class="modal-content login-content">
+            <button class="modal-close" id="loginModalClose" aria-label="Close">&times;</button>
+            <div class="login-header">
+                <span class="logo-icon">💎</span>
+                <h3 id="loginTitle">ग्राहक लॉगिन</h3>
+                <p id="loginSubtitle">जल्द ही आ रहा है। अभी हमसे संपर्क करें।</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="loginPhone" id="loginPhoneLabel">फोन नंबर</label>
+                    <input type="tel" id="loginPhone" placeholder="+91 00000 00000" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginOtp" id="loginOtpLabel">OTP</label>
+                    <input type="text" id="loginOtp" placeholder="6 अंकों का OTP" disabled>
+                </div>
+                <button type="submit" class="btn btn-gold" id="loginSubmit" disabled>लॉगिन करें</button>
+            </form>
+            <div class="login-help">
+                <a href="tel:+918115150061"><i class="fas fa-phone"></i> +91 81151 50061</a>
+                <a href="https://wa.me/918115150061" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp पर संदेश भेजें</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background music: Indian Folk Classical Flute Music by MayankSingh33 (CC BY-SA 4.0) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Indian_Folk_Classical_Flute_Music_%281%29.wav" type="audio/wav">
+    </audio>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

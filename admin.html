@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin | Sanjay Jewellery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f0d060;
+            --gold-dark: #b8960c;
+            --dark: #1a1a2e;
+            --dark-2: #16213e;
+            --cream: #fdf8e8;
+            --white: #ffffff;
+            --gray: #666;
+            --gray-light: #f5f5f5;
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: var(--dark); background: var(--gray-light); min-height: 100vh; }
+        .admin-header {
+            background: var(--dark);
+            color: var(--white);
+            padding: 1.2rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .admin-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        .admin-header .back-link {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font: inherit;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark);
+        }
+        .btn-primary:hover { background: var(--gold-dark); color: var(--white); }
+        .btn-danger {
+            background: #dc3545;
+            color: var(--white);
+        }
+        .btn-danger:hover { background: #b02a37; }
+        .message-list { display: flex; flex-direction: column; gap: 1rem; }
+        .message-card {
+            background: var(--white);
+            border-left: 4px solid var(--gold);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .message-card .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+        .message-card .meta strong { color: var(--dark); }
+        .message-card p { line-height: 1.7; }
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray);
+        }
+        .error { color: #dc3545; margin-top: 0.75rem; }
+        .success { color: #198754; margin-top: 0.75rem; }
+        .hidden { display: none !important; }
+        @media (max-width: 600px) {
+            .admin-header h1 { font-size: 1.2rem; }
+            .card { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <h1><i class="fas fa-gem"></i> Sanjay Jewellery Admin</h1>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> वेबसाइट पर वापस जाएं</a>
+    </header>
+
+    <main class="container">
+        <section id="loginSection" class="card">
+            <h2 style="margin-bottom: 0.5rem;">Admin Login</h2>
+            <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                केवल authorised user ही messages देख सकते हैं। Firebase Console में <strong>Email/Password</strong> provider enable और admin email बनाना ज़रूरी है।
+            </p>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" placeholder="admin@sanjayjewellery.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p id="loginError" class="error hidden"></p>
+            </form>
+        </section>
+
+        <section id="dashboardSection" class="hidden">
+            <div class="card" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h2>Contact Messages</h2>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Website से आए संदेश यहाँ दिखेंगे।</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <button id="refreshBtn" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button id="logoutBtn" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+            <div id="messagesContainer" class="message-list">
+                <div class="empty-state">Loading messages…</div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, collection, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        const firebaseApp = initializeApp({
+            apiKey: "AIzaSyDc_XSDl8RXs9WhPQPEphd2eTS-P59EZVM",
+            authDomain: "sanjay123-5b4c8.firebaseapp.com",
+            projectId: "sanjay123-5b4c8",
+            storageBucket: "sanjay123-5b4c8.firebasestorage.app",
+            messagingSenderId: "169504936791",
+            appId: "1:169504936791:web:52855a6918f314411f2412",
+            measurementId: "G-84MSG4EY9J"
+        });
+
+        const auth = getAuth(firebaseApp);
+        const db = getFirestore(firebaseApp);
+
+        const loginSection = document.getElementById('loginSection');
+        const dashboardSection = document.getElementById('dashboardSection');
+        const loginForm = document.getElementById('adminLoginForm');
+        const loginError = document.getElementById('loginError');
+        const messagesContainer = document.getElementById('messagesContainer');
+
+        function showDashboard() {
+            loginSection.classList.add('hidden');
+            dashboardSection.classList.remove('hidden');
+            loadMessages();
+        }
+
+        function showLogin() {
+            dashboardSection.classList.add('hidden');
+            loginSection.classList.remove('hidden');
+            messagesContainer.innerHTML = '<div class="empty-state">Loading messages…</div>';
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loginError.classList.add('hidden');
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+            } catch (err) {
+                loginError.textContent = 'Login failed: ' + err.message;
+                loginError.classList.remove('hidden');
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            await signOut(auth);
+        });
+
+        document.getElementById('refreshBtn').addEventListener('click', loadMessages);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) showDashboard();
+            else showLogin();
+        });
+
+        async function loadMessages() {
+            messagesContainer.innerHTML = '<div class="empty-state"><i class="fas fa-spinner fa-spin"></i> Loading…</div>';
+            try {
+                const q = query(collection(db, 'contactMessages'), orderBy('createdAt', 'desc'));
+                const snapshot = await getDocs(q);
+                if (snapshot.empty) {
+                    messagesContainer.innerHTML = '<div class="empty-state">कोई संदेश नहीं मिला।</div>';
+                    return;
+                }
+                messagesContainer.innerHTML = '';
+                snapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    const date = data.createdAt?.toDate ? data.createdAt.toDate().toLocaleString('hi-IN') : 'Unknown date';
+                    const card = document.createElement('div');
+                    card.className = 'message-card';
+                    card.innerHTML = `
+                        <div class="meta">
+                            <span><strong>Name:</strong> ${escapeHtml(data.name || '-')}</span>
+                            <span><strong>Phone:</strong> ${escapeHtml(data.phone || '-')}</span>
+                            <span><strong>Email:</strong> ${escapeHtml(data.email || '-')}</span>
+                            <span><strong>Date:</strong> ${date}</span>
+                        </div>
+                        <p>${escapeHtml(data.message || '-')}</p>
+                    `;
+                    messagesContainer.appendChild(card);
+                });
+            } catch (err) {
+                messagesContainer.innerHTML = `<div class="empty-state" style="color:#dc3545">Error loading messages: ${escapeHtml(err.message)}</div>`;
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contactMessages/{messageId} {
+      allow create: if request.resource.data.keys().hasAll([
+        'name', 'phone', 'email', 'message', 'createdAt', 'source'
+      ])
+      && request.resource.data.name is string
+      && request.resource.data.name.size() > 0
+      && request.resource.data.name.size() <= 120
+      && request.resource.data.phone is string
+      && request.resource.data.phone.size() <= 30
+      && request.resource.data.email is string
+      && request.resource.data.email.size() <= 254
+      && request.resource.data.message is string
+      && request.resource.data.message.size() > 0
+      && request.resource.data.message.size() <= 4000
+      && request.resource.data.source == 'sanjay-jewellery-website';
+
+      // Only authenticated admin users can read messages.
+      // Replace 'admin@sanjayjewellery.com' with the admin email you create in Firebase Authentication.
+      allow read: if request.auth != null && request.auth.token.email == 'admin@sanjayjewellery.com';
+      allow update, delete: if false;
+    }
+  }
+}
