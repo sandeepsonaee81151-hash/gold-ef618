@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="मेरे ऑर्डर — संजय ज्वैलरी" data-en="My Orders — Sanjay Jewellery">मेरे ऑर्डर — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="मेरे ऑर्डर" data-en="My Orders">मेरे ऑर्डर</h1><p data-hi="आपके ऑर्डर का इतिहास" data-en="Your order history">आपके ऑर्डर का इतिहास</p></div></div>
+<section class="section">
+  <div class="container" id="ordersWrap"></div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=3"></script>
+<script src="js/cart.js?v=3"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+function loadOrders(){try{return JSON.parse(localStorage.getItem("jk_orders"))||[]}catch{return []}}
+function renderOrders(){
+  const orders=loadOrders();
+  const wrap=document.getElementById("ordersWrap");
+  if(!orders.length){wrap.innerHTML="<div class='empty'><h3 data-hi='कोई ऑर्डर नहीं मिला' data-en='No orders found'>कोई ऑर्डर नहीं मिला</h3><p><a href='shop.html' class='btn btn-gold' data-hi='खरीदारी शुरू करें' data-en='Start Shopping'>खरीदारी शुरू करें</a></p></div>";return}
+  wrap.innerHTML=orders.map((o,i)=>`
+    <div class="product-card" style="padding:20px;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px">
+        <strong>${L("ऑर्डर","Order")} #${o.id}</strong>
+        <span class="badge">${o.status||L("प्रोसेसिंग","Processing")}</span>
+      </div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">${o.date}</div>
+      ${o.items.map(it=>{const p=getProduct(it.id);return `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span>${pname(p)} ×${it.qty}</span><span>${formatPrice(p.price*it.qty)}</span></div>`}).join("")}
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-weight:700;color:var(--gold)"><span>${L("कुल","Total")}</span><span>${formatPrice(o.total)}</span></div>
+    </div>
+  `).join("");
+}
+renderOrders();
+window.renderOrders=renderOrders;
+const origApply=window.applyLang;
+window.applyLang=function(){renderOrders();if(origApply)origApply();};
+</script>
+</body>
+</html>

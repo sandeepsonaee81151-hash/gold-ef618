@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="कार्ट — संजय ज्वैलरी" data-en="Cart — Sanjay Jewellery">कार्ट — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="page-hero"><div class="container"><h1 data-hi="आपका कार्ट" data-en="Your Cart">आपका कार्ट</h1><p data-hi="चुने गए आभूषण देखें" data-en="Review your selected pieces">चुने गए आभूषण देखें</p></div></div>
+<section class="section">
+  <div class="container" id="cartWrap"></div>
+</section>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+function renderCart(){
+  const c=getCart();
+  const wrap=document.getElementById("cartWrap");
+  if(!c.length){wrap.innerHTML="<div class='empty'><h3>"+L("आपका कार्ट खाली है","Your cart is empty")+"</h3><p><a href='shop.html' class='btn btn-gold'>"+L("खरीदारी जारी रखें","Continue Shopping")+"</a></p></div>";return}
+  let rows=c.map(x=>{
+    const p=getProduct(x.id);if(!p)return "";
+    return `<tr>
+      <td><img src="${p.img}" alt="${pname(p)}" onerror="this.onerror=null;this.src='${p.fb}'"></td>
+      <td><strong>${pname(p)}</strong><br><small style="color:var(--muted)">${pmetal(p)} ${p.purity} • ${p.weight}</small></td>
+      <td>${formatPrice(p.price)}</td>
+      <td><div class="qty"><button onclick="updateQty(${p.id},${x.qty-1});renderCart()">−</button><span>${x.qty}</span><button onclick="updateQty(${p.id},${x.qty+1});renderCart()">+</button></div></td>
+      <td>${formatPrice(p.price*x.qty)}</td>
+      <td><button onclick="removeFromCart(${p.id});renderCart()" style="background:none;border:none;color:#e53935;cursor:pointer;font-size:18px">✕</button></td>
+    </tr>`;
+  }).join("");
+  const subtotal=cartTotal();
+  const shipping=subtotal>=25000?0:500;
+  const total=subtotal+shipping;
+  wrap.innerHTML=`
+  <table class="cart-table">
+    <thead><tr><th></th><th>${L("प्रोडक्ट","Product")}</th><th>${L("कीमत","Price")}</th><th>${L("मात्रा","Qty")}</th><th>${L("सबटोटल","Subtotal")}</th><th></th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <div style="margin-top:30px">
+    <div class="cart-summary">
+      <h3>${L("ऑर्डर सारांश","Order Summary")}</h3>
+      <div class="row"><span>${L("सबटोटल","Subtotal")}</span><span>${formatPrice(subtotal)}</span></div>
+      <div class="row"><span>${L("शिपिंग","Shipping")}</span><span>${shipping===0?L("मुफ़्त","Free"):formatPrice(shipping)}</span></div>
+      <div class="row"><span>GST</span><span>${L("शामिल","Included")}</span></div>
+      <div class="row total"><span>${L("कुल","Total")}</span><span>${formatPrice(total)}</span></div>
+      <a href="checkout.html" class="btn btn-gold" style="width:100%;text-align:center;margin-top:12px;display:block">${L("चेकआउट पर जाएं","Proceed to Checkout")}</a>
+      <a href="shop.html" style="display:block;text-align:center;margin-top:10px;font-size:13px;color:var(--gold)">${L("खरीदारी जारी रखें","Continue Shopping")}</a>
+    </div>
+  </div>`;
+}
+renderCart();
+window.renderCart=renderCart;
+const origApply=window.applyLang;
+window.applyLang=function(){renderCart();if(origApply)origApply();};
+</script>
+</body>
+</html>

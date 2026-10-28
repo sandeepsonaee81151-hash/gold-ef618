@@ -1,0 +1,39 @@
+https://sanjay123-5b4c8.web.app
+
+Sanjay Jewellery — Live Website
+Project: sanjay123-5b4c8
+Hosting: Firebase Hosting
+
+=== MAIN LINK (copy this) ===
+https://sanjay123-5b4c8.web.app
+
+=== ALL PAGES ===
+Home:       https://sanjay123-5b4c8.web.app/
+Shop:       https://sanjay123-5b4c8.web.app/shop.html
+Product:    https://sanjay123-5b4c8.web.app/product.html?id=1
+Cart:       https://sanjay123-5b4c8.web.app/cart.html
+Checkout:   https://sanjay123-5b4c8.web.app/checkout.html
+Orders:     https://sanjay123-5b4c8.web.app/orders.html
+Wishlist:   https://sanjay123-5b4c8.web.app/wishlist.html
+About:      https://sanjay123-5b4c8.web.app/about.html
+Contact:    https://sanjay123-5b4c8.web.app/contact.html
+FAQ:        https://sanjay123-5b4c8.web.app/faq.html
+Shipping:   https://sanjay123-5b4c8.web.app/shipping.html
+Returns:    https://sanjay123-5b4c8.web.app/returns.html
+Size Guide: https://sanjay123-5b4c8.web.app/size-guide.html
+Privacy:    https://sanjay123-5b4c8.web.app/privacy.html
+Terms:      https://sanjay123-5b4c8.web.app/terms.html
+Admin:      https://sanjay123-5b4c8.web.app/admin.html
+
+=== CONTACT ===
+Mobile / WhatsApp: +91 81151 50061
+Email: hello@sanjayjewellery.in
+
+=== DOCS (in project folder) ===
+PFP.md        - Project Functional Plan (Home Page requirements)
+TESTCASES.md  - 62 test cases, 100% pass rate
+EVIDENCE.md   - Test evidence, screenshots & math proof
+evidence/     - home-page-full.png, home-hero.png
+
+=== REDEPLOY COMMAND ===
+firebase deploy --only hosting

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-hi="प्रोडक्ट — संजय ज्वैलरी" data-en="Product — Sanjay Jewellery">प्रोडक्ट — संजय ज्वैलरी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+  <div class="breadcrumb"><a href="index.html" data-hi="होम" data-en="Home">होम</a><span>/</span><a href="shop.html" data-hi="शॉप" data-en="Shop">शॉप</a><span>/</span><span id="bc"></span></div>
+  <div id="pdwrap"></div>
+  <div class="section-title" style="margin-top:40px"><h2 data-hi="आपको यह भी पसंद आ सकता है" data-en="You May Also Like">आपको यह भी पसंद आ सकता है</h2></div>
+  <div class="grid grid-4" id="related"></div>
+</div>
+<div id="footer"></div>
+<script src="js/products.js?v=4"></script>
+<script src="js/cart.js?v=4"></script>
+<script src="js/app.js?v=7"></script>
+<script>
+const id=new URLSearchParams(location.search).get("id");
+const p=getProduct(id);
+function renderProduct(){
+  if(!p){document.getElementById("pdwrap").innerHTML="<div class='empty'><h3 data-hi='प्रोडक्ट नहीं मिला' data-en='Product not found'>प्रोडक्ट नहीं मिला</h3><a href='shop.html' class='btn btn-gold' data-hi='शॉप पर वापस जाएं' data-en='Back to shop'>शॉप पर वापस जाएं</a></div>";return}
+  document.title=pname(p)+" — "+L("संजय ज्वैलरी","Sanjay Jewellery");
+  document.getElementById("bc").textContent=pname(p);
+  let qty=1;
+  document.getElementById("pdwrap").innerHTML=`
+  <div class="pd">
+    <div class="pd-gallery">
+      <div class="main-img"><img id="mainImg" src="${p.img}" alt="${pname(p)}" onerror="this.onerror=null;this.src='${p.fb}'"></div>
+      <div class="thumbs">
+        <img src="${p.fb}" class="active" onclick="document.getElementById('mainImg').src=this.src;document.querySelectorAll('.thumbs img').forEach(x=>x.classList.remove('active'));this.classList.add('active')">
+      </div>
+    </div>
+    <div class="pd-info">
+      <div class="cat" style="color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px">${pcat(p)} • ${pmetal(p)}</div>
+      <h1>${pname(p)}</h1>
+      <div class="rating">★★★★★ <span style="color:var(--muted)">(24 ${L("रिव्यू","reviews")})</span></div>
+      <div class="price">${formatPrice(p.price)} <small>${L("सहित GST और मेकिंग","incl. GST & making")}</small></div>
+      <p style="color:var(--muted)">${pdesc(p)}</p>
+      <div class="spec">
+        <div><strong>${L("धातु","Metal")}</strong>${pmetal(p)}</div>
+        <div><strong>${L("शुद्धता","Purity")}</strong>${p.purity}</div>
+        <div><strong>${L("वज़न","Weight")}</strong>${p.weight}</div>
+        <div><strong>${L("मेकिंग चार्ज","Making Charges")}</strong>${p.making}%</div>
+        <div><strong>${L("प्रमाणन","Certification")}</strong>${L("BIS हॉलमार्क","BIS Hallmarked")}</div>
+        <div><strong>${L("उपलब्धता","Availability")}</strong>${L("स्टॉक में है","In Stock")}</div>
+      </div>
+      <div class="qty">
+        <button onclick="if(qty>1){qty--;document.getElementById('q').textContent=qty}">−</button>
+        <span id="q">1</span>
+        <button onclick="qty++;document.getElementById('q').textContent=qty">+</button>
+      </div>
+      <button class="btn btn-gold" onclick="addToCart(${p.id},qty);location.href='cart.html'">${L("अभी खरीदें","Buy Now")}</button>
+      <button class="btn btn-outline" onclick="addToCart(${p.id},qty)">${L("कार्ट में डालें","Add to Cart")}</button>
+      <button class="btn" style="background:none;border:none;font-size:22px;vertical-align:middle" onclick="toggleWish(${p.id});this.textContent=isWished(${p.id})?'❤':'♡';updateCartBadge()">${isWished(p.id)?'❤':'♡'}</button>
+      <div style="margin-top:16px;font-size:13px;color:var(--muted);white-space:nowrap">📞 ${L("सहायता चाहिए?","Need help?")} <a href="contact.html" style="color:var(--gold)">${L("हमसे संपर्क करें","Contact us")}</a> ${L("या WhatsApp","or WhatsApp")} +91 81151 50061</div>
+    </div>
+  </div>`;
+  const related=PRODUCTS.filter(x=>pcat(x)===pcat(p)&&x.id!==p.id).slice(0,4);
+  document.getElementById("related").innerHTML=related.map(productCard).join("");
+  const origApply=window.applyLang;
+  window.applyLang=function(){renderProduct();if(origApply)origApply();};
+}
+renderProduct();
+</script>
+</body>
+</html>
